@@ -1,22 +1,41 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800&display=swap");
+body {
+  background-color: black;
+}
 .app-con {
+  h1 {
+    margin-left: 1rem;
+    color: white;
+  }
   font-family: "Montserrat";
   margin: 2rem 2.2rem;
+
   .content {
     p {
       font-size: 1.2rem;
+      color: white;
     }
     display: flex;
     .instructions {
       padding-left: 2rem;
       li {
-        margin-bottom: 0.5rem;
+        margin-bottom: 1rem;
         font-weight: 600;
+        color: white;
+        list-style-type: none;
       }
       .samples {
         .gifs {
           display: flex;
           justify-content: space-evenly;
+          cursor: pointer;
+          img {
+            width: 130px;
+            &:hover {
+              filter: brightness(50%);
+              transition: 0.5s;
+            }
+          }
         }
       }
     }
@@ -28,20 +47,22 @@
     justify-content: space-evenly;
     i {
       font-size: 1.5rem;
+      color: white;
       cursor: pointer;
       &:hover {
         color: rgb(100, 100, 100);
       }
     }
     button {
-      background-color: black;
+      background-color: white;
       border: none;
-      color: white;
+      color: black;
       font-family: "Montserrat";
       font-weight: 600;
       padding: 0.3rem;
       &:hover {
         background-color: rgb(100, 100, 100);
+        color: white;
         cursor: pointer;
       }
     }
@@ -49,5 +70,6 @@
   .speed {
     text-align: center;
     width: 50%;
+    color: white;
   }
 }

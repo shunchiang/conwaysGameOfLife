@@ -1,6 +1,8 @@
 import React, { useState, useCallback, useRef } from "react";
 import "./App.scss";
 import produce from "immer";
+import { pulsar, flower, glider } from "./presets";
+import flowerGif from "./gifs/flowerGif.gif";
 
 const numRows = 25;
 const numCols = 35;
@@ -81,6 +83,7 @@ function App() {
           style={{
             display: "grid",
             gridTemplateColumns: `repeat(${numCols},20px)`,
+            background: "white",
           }}
         >
           {grid.map((rows, i) =>
@@ -91,6 +94,7 @@ function App() {
                   if (!running) {
                     const newGrid = produce(grid, (gridCopy) => {
                       gridCopy[i][k] = grid[i][k] ? 0 : 1;
+                      console.log(grid);
                     });
                     setGrid(newGrid);
                   } else {
@@ -129,21 +133,30 @@ function App() {
           </li>
           <div className="samples">
             <p>
-              Try drawing any of these samples to bring to life, or experiment
-              with your own
+              Try clicking any of these samples to start, or experiment with
+              drawing your own
             </p>
             <div className="gifs">
               <img
-                src="https://upload.wikimedia.org/wikipedia/commons/9/95/Game_of_life_blinker.gif"
+                src="https://upload.wikimedia.org/wikipedia/commons/0/07/Game_of_life_pulsar.gif"
                 alt="oscilator"
+                onClick={() => {
+                  setGrid(pulsar);
+                }}
               />
               <img
-                src="https://upload.wikimedia.org/wikipedia/commons/1/12/Game_of_life_toad.gif"
-                alt="toad"
+                src={flowerGif}
+                alt="flower"
+                onClick={() => {
+                  setGrid(flower);
+                }}
               />
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Game_of_life_animated_glider.gif"
                 alt="glider"
+                onClick={() => {
+                  setGrid(glider);
+                }}
               />
             </div>
           </div>
